@@ -3,9 +3,23 @@ import { styled } from "styled-components";
 
 
 export const Container = styled.section`
-  margin-top: 2.25rem;
-  margin-right: 1rem;
-    
+  width: 100%;
+`
+
+export const HeaderSmallCalendar = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  padding-left: 0.7rem;
+  padding-right: 0.3rem;
+  width: 100%;
+  h2 {
+    font-size: 1rem;
+    font-family: sans-serif;
+    font-weight: normal;
+    margin-top: 1rem;
+  }
 `
 
 export const BtnRightLeft = styled.span`
@@ -17,32 +31,32 @@ export const BtnRightLeft = styled.span`
         background: none;
         border: none;
         font-size: 1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+          background: #FAFAFA;
+        }
     }
 `
 
-export const HeaderSmallCalendar = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.5rem;
 
-  h2 {
-    font-size: 1rem;
-    margin-left: .5rem;
-    font-family: sans-serif;
-    font-weight: normal;
-  }
-`
 
 export const SmallCalendar = styled.div`
   display: grid;
+  width: 100%;
   grid-template-columns: repeat(7, minmax(0, 1fr));
   grid-template-rows: repeat(6, minmax(0, 1fr));
 `
 
 export const Week = styled.span`
+  width: 100%;
   font-size: 0.75rem;
-  padding: 0.25rem;
+  padding-top: 0.25rem;
   text-align: center;
 `
 
@@ -64,7 +78,8 @@ export const Day = styled.span`
   color: ${ ({$formatCurrentDay}) => $formatCurrentDay   && 'white'};
 
   &:hover {
-    background: rgb(191 219 254);
+    /* background: rgb(191 219 254); */
+    background: #F2F2F2;
     border-radius: 100%;
   }
 `

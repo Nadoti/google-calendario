@@ -3,7 +3,7 @@ import dayjs from 'dayjs'
 import "dayjs/locale/pt"
 
 export function Day({ day, rowIdx }) {
-    // console.log(day)
+    // console.log(new Date())
   return (
     <S.ContainerDay >
       <S.DayHeader>

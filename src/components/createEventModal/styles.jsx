@@ -79,7 +79,26 @@ export const TypesOfEvent = styled.span`
 `
 
 export const DateContainer = styled.div`
-    padding: 1rem;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1rem 1fr;
     align-items: center;
+`
+
+export const SvgStylesContainer = styled.span`
+    padding-left: 1rem;
+    
+`
+
+export const Date = styled.div`
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding-left: 2.5rem;
+    min-width: 300px;
+`
+
+export const Separator = styled.span`
+    font-size: 2rem; 
+    margin: 0 1rem;
+
 `

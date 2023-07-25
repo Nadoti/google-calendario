@@ -33,10 +33,14 @@ export function CreateEventModal() {
                         </button>
                     </S.TypesOfEvent>
                     <S.DateContainer>
-                        <BsClock />
-                        <div>
-                            <SelectCalendar />
-                        </div>
+                        <S.SvgStylesContainer>
+                            <BsClock />
+                        </S.SvgStylesContainer>
+                        <S.Date>
+                            <SelectCalendar name='startDate'/>
+                            <S.Separator>-</S.Separator>
+                            <SelectCalendar name='endDate'/>
+                        </S.Date>
                     </S.DateContainer>
                 </S.ContentModal>
             </S.ScreenModal>
