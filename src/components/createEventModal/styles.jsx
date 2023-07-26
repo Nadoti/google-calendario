@@ -41,7 +41,7 @@ export const ContentModal = styled.div`
 
 export const TitleInput = styled.span`
     width: 100%;
-    padding-left: 4rem;
+    padding-left: 4.5rem;
     padding-top: 1rem;
     margin-bottom: 1rem;
 
@@ -82,6 +82,7 @@ export const DateContainer = styled.div`
     display: grid;
     grid-template-columns: 1rem 1fr;
     align-items: center;
+    margin-bottom: 2rem;
 `
 
 export const SvgStylesContainer = styled.span`
