@@ -20,7 +20,7 @@ export function SelectCalendar({ name }) {
     };
 
     function handleHandleChange({ target }) {
-        setDateValue
+        // setDateValue
     }
 
     function handleFocusOpenCalendarModal(element) {

@@ -57,7 +57,7 @@ export default function SmallCalendar() {
                   <S.Day
                     $formatCurrentDay={day.format('DD-MM-YYYY') === dayjs().format('DD-MM-YYYY')}
                   >
-                    {day.format('DD')}
+                    {day.format('D')}
                   </S.Day>
                 </S.Days>
               ))}

@@ -1,15 +1,6 @@
 import { styled } from "styled-components";
 
 
-
-export const ContainerInput = styled.section`
-    width: 100%;
-    position: relative;
-    .inputFocus {
-        background: red;
-    }
-`
-
 export const FieldDate = styled.span`
     display: block;
     width: 100%;
@@ -37,8 +28,6 @@ export const FieldDate = styled.span`
     &::after {
         transform: ${ ({$isFocus}) => $isFocus  && 'scale(1,1)'};
     }
-        
-    
    
 `
 
@@ -52,25 +41,7 @@ export const InputStyle = styled.input`
     padding: 0.5rem ;
 
     &:focus {
-        background: #afd2fa;
         color: #505863;
     }
     
-`
-
-export const ModalSmallCalendar = styled.div`
-    width: 100%;
-    max-width: 300px;
-    display: block;
-    position: fixed;
-    background: #fff;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    padding-top: .5rem;
-    box-shadow: 0 24px 38px 3px rgba(0,0,0,.14), 
-                0 9px 46px 8px rgba(0,0,0,.12), 
-                0 11px 15px -7px rgba(0,0,0,.2);
-    border-radius: 8px;
-    margin-top: .5rem;
 `
