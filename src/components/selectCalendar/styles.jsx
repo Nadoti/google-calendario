@@ -13,7 +13,7 @@ export const ContainerInput = styled.section`
 export const FieldDate = styled.span`
     display: block;
     width: 100%;
-    padding: 0.5rem;
+    padding:  0.5rem;
     position: relative;
     background: ${ ({$isFocus}) => $isFocus  && '#F2F2F2'};
     border-radius: 4px;
@@ -49,7 +49,7 @@ export const InputStyle = styled.input`
     border: none;
     background: transparent;
     position: relative;
-    padding: 0.5rem ;
+    padding: 0.25rem 0 ;
 
     &:focus {
         background: #afd2fa;
@@ -73,4 +73,5 @@ export const ModalSmallCalendar = styled.div`
                 0 11px 15px -7px rgba(0,0,0,.2);
     border-radius: 8px;
     margin-top: .5rem;
+    z-index: 10;
 `

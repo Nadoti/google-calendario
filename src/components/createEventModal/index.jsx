@@ -3,6 +3,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import { FaGripLines } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { BsClock } from "react-icons/bs";
+import { RiDoorOpenLine } from "react-icons/ri";
+import { PiMapPin } from "react-icons/pi";
 import { SelectCalendar } from '../selectCalendar';
 import { Input } from '../input';
 
@@ -56,9 +58,28 @@ export function CreateEventModal() {
                             <FiUsers />
                         </S.SvgStylesContainer>
                         <S.AddGuest>
-                            <Input />
+                            <Input placeholder="Adicionar convidados"/>
                         </S.AddGuest>
                     </S.AddGuestContainer>
+                    <S.AddRoomContainer>
+                        <S.SvgStylesContainer>
+                            <RiDoorOpenLine />
+                        </S.SvgStylesContainer>
+                        <S.AddGuest>
+                            <Input placeholder="Adicionar Salas"/>
+                        </S.AddGuest>
+                    </S.AddRoomContainer>
+                    <S.AddLocalContainer>
+                        <S.SvgStylesContainer>
+                            <PiMapPin />
+                        </S.SvgStylesContainer>
+                        <S.AddGuest>
+                            <Input placeholder="Adicionar Local"/>
+                        </S.AddGuest>
+                    </S.AddLocalContainer>
+                    <S.SaveNewScheduleContainer>
+                        <button>Salvar</button>
+                    </S.SaveNewScheduleContainer>
                 </S.ContentModal>
             </S.ScreenModal>
         </S.FullScreen>

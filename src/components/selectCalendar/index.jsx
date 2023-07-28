@@ -41,15 +41,15 @@ export function SelectCalendar({ name }) {
     return (
         <S.ContainerInput>
             <S.FieldDate $isFocus={isModal}>
-                    <S.InputStyle 
-                        name={name} 
-                        id={name}
-                        type="text" 
-                        value={fraseFinal}
-                        onChange={handleHandleChange} 
-                        onFocus={handleFocusOpenCalendarModal}
-                        $isFocus={isModal}
-                    />
+                <S.InputStyle 
+                    name={name} 
+                    id={name}
+                    type="text" 
+                    value={fraseFinal}
+                    onChange={handleHandleChange} 
+                    onFocus={handleFocusOpenCalendarModal}
+                    $isFocus={isModal}
+                />
             </S.FieldDate>
             {isModal && (
                 <S.ModalSmallCalendar ref={modalRef}>

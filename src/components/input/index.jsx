@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import * as S from './styles'
 
-export function Input() {
+export function Input({ placeholder }) {
     
     const [isModal, setIsModal] = useState(false)
     const modalRef = useRef(null);
@@ -23,7 +23,7 @@ export function Input() {
     }, [handleClickOutside]);
 
     return (
-        <S.FieldDate $isFocus={isModal}>
+        <S.FieldDate $isFocus={isModal} ref={modalRef}>
             <S.InputStyle 
                 // name={name} 
                 // id={name}
@@ -32,6 +32,7 @@ export function Input() {
                 // onChange={handleHandleChange} 
                 onFocus={handleFocusOpenCalendarModal}
                 $isFocus={isModal}
+                placeholder={placeholder}
             />
         </S.FieldDate>
     )

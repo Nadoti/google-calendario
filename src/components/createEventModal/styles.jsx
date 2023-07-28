@@ -36,7 +36,6 @@ export const ContentModal = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
-    padding-right: 1rem;
 `
 
 export const TitleInput = styled.span`
@@ -44,6 +43,7 @@ export const TitleInput = styled.span`
     padding-left: 4.5rem;
     padding-top: 1rem;
     margin-bottom: 1rem;
+    padding-right: 1rem;
 
     input {
         width: 100%;
@@ -61,6 +61,7 @@ export const TypesOfEvent = styled.span`
     align-items: center;
     justify-content: space-between;
     padding-left: 4rem;
+    padding-right: 1rem;
 
     button {
         background: none;
@@ -82,6 +83,8 @@ export const DateContainer = styled.div`
     display: grid;
     grid-template-columns: 1rem 1fr;
     align-items: center;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
 `
 
 export const SvgStylesContainer = styled.span`
@@ -132,47 +135,55 @@ export const AllDayLong = styled.div`
 export const Checkbox = styled.input`
     width: 1rem;
     height: 1rem;
+    display: block;
 `
 
 export const AddGuestContainer = styled.div`
     display: flex;
+    align-items: center;
+    border-bottom: 1px solid #D0D2D4;
+    padding-bottom: 0.5rem;
 `
 
 export const AddGuest = styled.div`
-    margin-left: 2.5rem;
+    margin-left: 1.5rem;
+    width: 100%;
+    padding-right: 1rem;
+`
 
-    &:hover, &:focus {
-        background: #F2F2F2;
-    }
 
-    
-    &::after {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: 3px;
-        left: 0;
-        bottom: 0;
+export const AddRoomContainer = styled.div`
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+`
+
+export const AddLocalContainer = styled.div`
+    display: flex;
+    align-items: center;
+`
+
+export const SaveNewScheduleContainer = styled.div`
+    display: flex;
+    align-items: end;
+    width: 100%;
+    justify-content: end;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+
+    button {
         background: rgb(37 99 235);
-        transform: scale(0, 1);
-        transition: transform .4s ease;
-    }
-
-    &:hover, &:focus {
-        background: #F2F2F2;
-    }
-
-    input {
-        width: 100%;
-        max-width: 100%;
-        outline: none;
+        padding: 0.75rem 2rem;
+        color: #fff;
+        font-size: 0.875rem;
         border: none;
-        background: transparent;
-        position: relative;
-        padding: 0.5rem ;
+        border-radius: 4px;
+        font-weight: normal;
+        font-family: sans-serif;
+        text-transform: none;
 
-        &:focus {
-            color: #505863;
+        &:hover {
+            filter: brightness(.9);
         }
     }
 `
