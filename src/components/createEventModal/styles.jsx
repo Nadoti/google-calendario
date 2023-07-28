@@ -3,12 +3,10 @@ import { styled } from "styled-components";
 
 
 export const FullScreen = styled.section`
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `
 
 export const ScreenModal = styled.div`
@@ -30,6 +28,21 @@ export const Header = styled.header`
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
     background: rgb(241,243,244);
+
+    button {
+        background: none;
+        border: none;
+        font-size: 1rem;
+        padding: 0.25rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: rgba(0,0,0,.1);
+        }
+    }
 `
 
 export const ContentModal = styled.div`

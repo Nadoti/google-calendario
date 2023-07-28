@@ -1,11 +1,13 @@
 import * as S from './styles'
 import dayjs from 'dayjs'
 import "dayjs/locale/pt"
+import { ContextCalendar } from '../../context/ContextCalendar'
+import { useContext } from 'react'
 
 export function Day({ day, rowIdx }) {
-    // console.log(new Date())
+  const {  setIsModalSchedule } = useContext(ContextCalendar)
   return (
-    <S.ContainerDay >
+    <S.ContainerDay onClick={() => setIsModalSchedule(true)}>
       <S.DayHeader>
         {rowIdx === 0 && (
           <S.Week>

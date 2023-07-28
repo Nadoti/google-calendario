@@ -7,16 +7,33 @@ import { RiDoorOpenLine } from "react-icons/ri";
 import { PiMapPin } from "react-icons/pi";
 import { SelectCalendar } from '../selectCalendar';
 import { Input } from '../input';
+import { ContextCalendar } from '../../context/ContextCalendar';
+import { useContext, useEffect, useRef } from 'react';
 
 export function CreateEventModal() {
+    const {  setIsModalSchedule } = useContext(ContextCalendar)
+    const modalRef = useRef(null);
 
+    function handleClickOutside(event) {
+        if(event.target.nodeName === 'INPUT' && event.target.name === name) return
+        if (modalRef.current && !modalRef.current.contains(event.target)) {
+            setIsModalSchedule(false)
+        }
+    };
+    
+    useEffect(() => {
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => document.removeEventListener('mousedown', handleClickOutside);
+    }, [handleClickOutside]);
 
     return (
-        <S.FullScreen>
+        <S.FullScreen ref={modalRef}>
             <S.ScreenModal>
                 <S.Header>
                     <FaGripLines />
-                    <AiOutlineClose />
+                    <button onClick={() => setIsModalSchedule(false)}>
+                        <AiOutlineClose />
+                    </button>
                 </S.Header>
                 <S.ContentModal>
                     <S.TitleInput>

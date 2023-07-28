@@ -37,9 +37,6 @@ export const FieldDate = styled.span`
     &::after {
         transform: ${ ({$isFocus}) => $isFocus  && 'scale(1,1)'};
     }
-        
-    
-   
 `
 
 export const InputStyle = styled.input`

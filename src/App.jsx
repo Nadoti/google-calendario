@@ -9,7 +9,7 @@ import { CreateEventModal } from "./components/createEventModal"
 
 function App() {
 
-  const { monthIndex } = useContext(ContextCalendar)
+  const { monthIndex, isModalSchedule } = useContext(ContextCalendar)
   const [currentMonth, setCurrentMonth] = useState(getMonth())
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex))
@@ -24,7 +24,7 @@ function App() {
         <NavBar />
         <Month month={currentMonth} />
       </S.ContentMain>
-      <CreateEventModal />
+      {isModalSchedule && <CreateEventModal />}
     </S.Container>
   )
 }
