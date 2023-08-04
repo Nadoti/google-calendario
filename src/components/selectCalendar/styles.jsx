@@ -42,6 +42,7 @@ export const FieldDate = styled.span`
 export const InputStyle = styled.input`
     width: 100%;
     max-width: 100%;
+    min-width: 9rem;
     outline: none;
     border: none;
     background: transparent;
@@ -51,6 +52,10 @@ export const InputStyle = styled.input`
     &:focus {
         background: #afd2fa;
         color: #505863;
+    }
+
+    &::first-letter {
+        text-transform: uppercase;
     }
     
 `

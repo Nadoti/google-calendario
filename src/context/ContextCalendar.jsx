@@ -7,19 +7,29 @@ export const ContextCalendar = React.createContext({
     setMonthIndex: (index) => {},
     isModalSchedule: false, 
     setIsModalSchedule: (index) => {},
+    valueDateSelected: '', 
+    setValueDateSelected: (index) => {},
+    eventDay: [],
+    setEventDay: (index) => {}
 })
 
 export function ContextAllCalendar({ children }) {
 
     const [monthIndex, setMonthIndex] = React.useState(dayjs().month())
     const [isModalSchedule, setIsModalSchedule] = useState(false)
+    const [valueDateSelected, setValueDateSelected] = useState('')
+    const [eventDay, setEventDay] = useState([])
 
     return (
         <ContextCalendar.Provider value={{
             monthIndex,
             setMonthIndex,
             isModalSchedule, 
-            setIsModalSchedule
+            setIsModalSchedule,
+            valueDateSelected,
+            setValueDateSelected,
+            eventDay, 
+            setEventDay
         }}>
             {children}
         </ContextCalendar.Provider>

@@ -6,9 +6,12 @@ import dayjs from 'dayjs'
 
 
 
-export function SelectCalendar({ name }) {
-    const dateFormat = dayjs()
-    const [dateValue, setDateValue] = useState(`${dateFormat.format('dddd')}, ${dateFormat.format('MMMM')} ${dateFormat.format('D')}`)
+export function SelectCalendar({ 
+    name,
+    value,
+    setValue 
+}) {
+    // const [dateValue, setDateValue] = useState(`${dateFormat.format('dddd')}, ${dateFormat.format('MMMM')} ${dateFormat.format('D')}`)
     const [isModal, setIsModal] = useState(false)
     const modalRef = useRef(null);
 
@@ -19,8 +22,8 @@ export function SelectCalendar({ name }) {
         }
     };
 
-    function handleHandleChange({ target }) {
-        // setDateValue
+    function handleOnChange({ target }) {
+
     }
 
     function handleFocusOpenCalendarModal(element) {
@@ -37,7 +40,7 @@ export function SelectCalendar({ name }) {
 
 
 
-    const fraseFinal = dateValue.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
+    // const fraseFinal = dateValue.replace(/(^\w{1})|(\s+\w{1})/g, letra => letra.toUpperCase());
     return (
         <S.ContainerInput>
             <S.FieldDate $isFocus={isModal}>
@@ -45,15 +48,15 @@ export function SelectCalendar({ name }) {
                     name={name} 
                     id={name}
                     type="text" 
-                    value={fraseFinal}
-                    onChange={handleHandleChange} 
+                    value={value}
+                    onChange={handleOnChange} 
                     onFocus={handleFocusOpenCalendarModal}
                     $isFocus={isModal}
                 />
             </S.FieldDate>
             {isModal && (
-                <S.ModalSmallCalendar ref={modalRef}>
-                    <SmallCalendar />
+                <S.ModalSmallCalendar ref={modalRef} >
+                    <SmallCalendar setValue={setValue}/>
                 </S.ModalSmallCalendar>
             )}
         </S.ContainerInput>

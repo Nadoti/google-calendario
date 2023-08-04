@@ -113,8 +113,8 @@ export const Date = styled.div`
 `
 
 export const Separator = styled.span`
-    font-size: 2rem; 
-    margin: 0 1rem;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
 `
 
 export const AddTime = styled.button`

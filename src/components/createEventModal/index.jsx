@@ -8,10 +8,14 @@ import { PiMapPin } from "react-icons/pi";
 import { SelectCalendar } from '../selectCalendar';
 import { Input } from '../input';
 import { ContextCalendar } from '../../context/ContextCalendar';
-import { useContext, useEffect, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
+import dayjs from 'dayjs';
 
 export function CreateEventModal() {
-    const {  setIsModalSchedule } = useContext(ContextCalendar)
+    const [title,setTitle] = useState('')
+    const [startDate,setStartDate] = useState(`${dayjs().format('dddd')}, ${dayjs().format('D')} de ${dayjs().format('MMMM')}`)
+    const [endDate,setEndDate] = useState(`${dayjs().format('dddd')}, ${dayjs().format('D')} de ${dayjs().format('MMMM')}`)
+    const {  setIsModalSchedule, setEventDay } = useContext(ContextCalendar)
     const modalRef = useRef(null);
 
     function handleClickOutside(event) {
@@ -26,6 +30,12 @@ export function CreateEventModal() {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [handleClickOutside]);
 
+    function handleNewEventDay() {
+        console.log(title)
+        console.log(startDate)
+        console.log(endDate)
+    }
+
     return (
         <S.FullScreen ref={modalRef}>
             <S.ScreenModal>
@@ -37,7 +47,7 @@ export function CreateEventModal() {
                 </S.Header>
                 <S.ContentModal>
                     <S.TitleInput>
-                        <input type="text" placeholder='Add title' />
+                        <input type="text" placeholder='Add title' value={title} onChange={({ target }) => setTitle(target.value)} />
                     </S.TitleInput>
                     <S.TypesOfEvent>
                         <button aria-selected='off'>
@@ -58,9 +68,9 @@ export function CreateEventModal() {
                             <BsClock />
                         </S.SvgStylesContainer>
                         <S.Date>
-                            <SelectCalendar name='startDate'/>
+                            <SelectCalendar name='startDate' value={startDate} setValue={setStartDate}/>
                             <S.Separator>-</S.Separator>
-                            <SelectCalendar name='endDate'/>
+                            <SelectCalendar name='endDate' value={endDate} setValue={setEndDate}/>
                             <S.AddTime>Adicionar horário</S.AddTime>
                         </S.Date>
                     </S.DateContainer>
@@ -95,7 +105,7 @@ export function CreateEventModal() {
                         </S.AddGuest>
                     </S.AddLocalContainer>
                     <S.SaveNewScheduleContainer>
-                        <button>Salvar</button>
+                        <button onClick={handleNewEventDay}>Salvar</button>
                     </S.SaveNewScheduleContainer>
                 </S.ContentModal>
             </S.ScreenModal>

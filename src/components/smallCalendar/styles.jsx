@@ -72,7 +72,7 @@ export const Day = styled.span`
   padding: 0.5rem;
   
   background: ${ ({$formatCurrentDay}) => $formatCurrentDay  && 'rgb(37 99 235)'};
-  width: ${ ({$formatCurrentDay}) => $formatCurrentDay   && '2.5rem'};
+  width: ${ ({$formatCurrentDay}) => $formatCurrentDay   && '1.5rem'};
   height: ${ ({$formatCurrentDay}) => $formatCurrentDay   && '1.5rem'};
   border-radius: ${ ({$formatCurrentDay}) => $formatCurrentDay   && '100%'};
   color: ${ ({$formatCurrentDay}) => $formatCurrentDay   && 'white'};

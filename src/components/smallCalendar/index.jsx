@@ -5,7 +5,7 @@ import dayjs from 'dayjs';
 import { getMonth } from '../../utils/date';
 import { ContextCalendar } from '../../context/ContextCalendar';
 
-export default function SmallCalendar() {
+export default function SmallCalendar({ setValue }) {
   const [currentMonthIdx, setCurrentMonthIdx] = useState(dayjs().month())
   const [currentMonth, setCurrentMonth] = useState(getMonth())
 
@@ -56,6 +56,7 @@ export default function SmallCalendar() {
                 <S.Days key={idx}>
                   <S.Day
                     $formatCurrentDay={day.format('DD-MM-YYYY') === dayjs().format('DD-MM-YYYY')}
+                    onClick={() => {setValue(day)}}
                   >
                     {day.format('D')}
                   </S.Day>
@@ -68,3 +69,4 @@ export default function SmallCalendar() {
     </S.Container>
   )
 }
+//`${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}`
