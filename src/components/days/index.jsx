@@ -13,7 +13,6 @@ export function Day({ day, rowIdx }) {
     setEventDay(event)
     // setEventDay(event)
   },[])
-  console.log(eventDay)
   return (
     <S.ContainerDay onClick={() => {
       setModalEventDay(`${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}`)

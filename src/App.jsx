@@ -14,8 +14,7 @@ function App() {
   useEffect(() => {
     setCurrentMonth(getMonth(monthIndex))
   }, [monthIndex])
-  const teste = null
-  console.log(teste)
+  
   return (
     <S.Container>
       <div>
