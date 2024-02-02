@@ -2,12 +2,23 @@ import * as S from './styles'
 import dayjs from 'dayjs'
 import "dayjs/locale/pt"
 import { ContextCalendar } from '../../context/ContextCalendar'
-import { useContext } from 'react'
+import { useContext, useEffect, useState, Fragment } from 'react'
 
 export function Day({ day, rowIdx }) {
-  const {  setIsModalSchedule } = useContext(ContextCalendar)
+  const {  setIsModalSchedule, setModalEventDay } = useContext(ContextCalendar)
+  const [eventDay, setEventDay] = useState([])
+
+  useEffect(() => {
+    const event = JSON.parse(localStorage.getItem('event'))
+    setEventDay(event)
+    // setEventDay(event)
+  },[])
+
   return (
-    <S.ContainerDay onClick={() => setIsModalSchedule(true)}>
+    <S.ContainerDay onClick={() => {
+      setModalEventDay(`${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}`)
+      setIsModalSchedule(true)
+    }}>
       <S.DayHeader>
         {rowIdx === 0 && (
           <S.Week>
@@ -18,7 +29,15 @@ export function Day({ day, rowIdx }) {
           {day.format('D')}
         </S.Day>
       </S.DayHeader>
-      
+      {eventDay.length ? (
+        eventDay.map((event, i) => (
+          <Fragment key={i}>
+            {event.startDate === `${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}` && (
+              <S.EventDay>{event.title}</S.EventDay>
+            )}
+          </Fragment>
+        ))
+      ) : null}
     </S.ContainerDay>
   )
 }

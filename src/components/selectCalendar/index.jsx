@@ -1,8 +1,7 @@
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import SmallCalendar from '../smallCalendar'
 import * as S from './styles'
-import dayjs from 'dayjs'
 
 
 
@@ -20,10 +19,10 @@ export function SelectCalendar({
         if (modalRef.current && !modalRef.current.contains(event.target)) {
             setIsModal(false)
         }
-    };
+    }
 
     function handleOnChange({ target }) {
-
+        console.log("TESTES")
     }
 
     function handleFocusOpenCalendarModal(element) {

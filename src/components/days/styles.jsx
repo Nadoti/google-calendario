@@ -33,3 +33,12 @@ export const Day = styled.p`
   color: ${ ({$currentDay}) => $currentDay  && 'white'};
 
 `
+
+
+
+export const EventDay = styled.p`
+  background: #D9D9D9;
+  color: #858585;
+  text-align: center;
+  margin-bottom: 10px;
+`

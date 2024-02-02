@@ -56,7 +56,7 @@ export default function SmallCalendar({ setValue }) {
                 <S.Days key={idx}>
                   <S.Day
                     $formatCurrentDay={day.format('DD-MM-YYYY') === dayjs().format('DD-MM-YYYY')}
-                    onClick={() => {setValue(day)}}
+                    onClick={() => {setValue(`${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}`)}}
                   >
                     {day.format('D')}
                   </S.Day>

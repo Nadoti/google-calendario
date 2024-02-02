@@ -19,6 +19,7 @@ export function ContextAllCalendar({ children }) {
     const [isModalSchedule, setIsModalSchedule] = useState(false)
     const [valueDateSelected, setValueDateSelected] = useState('')
     const [eventDay, setEventDay] = useState([])
+    const [modalEventDay, setModalEventDay] = useState('')
 
     return (
         <ContextCalendar.Provider value={{
@@ -29,7 +30,9 @@ export function ContextAllCalendar({ children }) {
             valueDateSelected,
             setValueDateSelected,
             eventDay, 
-            setEventDay
+            setEventDay,
+            modalEventDay,
+            setModalEventDay
         }}>
             {children}
         </ContextCalendar.Provider>

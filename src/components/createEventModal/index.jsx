@@ -12,10 +12,10 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import dayjs from 'dayjs';
 
 export function CreateEventModal() {
+    const {  setIsModalSchedule, setEventDay, modalEventDay } = useContext(ContextCalendar)
     const [title,setTitle] = useState('')
-    const [startDate,setStartDate] = useState(`${dayjs().format('dddd')}, ${dayjs().format('D')} de ${dayjs().format('MMMM')}`)
+    const [startDate,setStartDate] = useState(modalEventDay)
     const [endDate,setEndDate] = useState(`${dayjs().format('dddd')}, ${dayjs().format('D')} de ${dayjs().format('MMMM')}`)
-    const {  setIsModalSchedule, setEventDay } = useContext(ContextCalendar)
     const modalRef = useRef(null);
 
     function handleClickOutside(event) {
@@ -23,18 +23,33 @@ export function CreateEventModal() {
         if (modalRef.current && !modalRef.current.contains(event.target)) {
             setIsModalSchedule(false)
         }
-    };
+    }
     
     useEffect(() => {
         document.addEventListener('mousedown', handleClickOutside);
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [handleClickOutside]);
 
-    function handleNewEventDay() {
-        console.log(title)
-        console.log(startDate)
-        console.log(endDate)
+    // function handleNewEventDay() {
+    //     console.log(title)
+    //     console.log(startDate)
+    //     console.log(endDate)
+    // }
+
+    function handleSaveEvent() {
+        const getEventLocalStorage = JSON.parse(localStorage.getItem('event')) || [];
+    
+        const event = {
+            title,
+            startDate
+        };
+    
+        const arrayEvent = [...getEventLocalStorage, event];
+    
+        localStorage.setItem("event", JSON.stringify(arrayEvent));
+        window.location.reload()
     }
+    
 
     return (
         <S.FullScreen ref={modalRef}>
@@ -69,9 +84,9 @@ export function CreateEventModal() {
                         </S.SvgStylesContainer>
                         <S.Date>
                             <SelectCalendar name='startDate' value={startDate} setValue={setStartDate}/>
-                            <S.Separator>-</S.Separator>
-                            <SelectCalendar name='endDate' value={endDate} setValue={setEndDate}/>
-                            <S.AddTime>Adicionar horário</S.AddTime>
+                            {/* <S.Separator>-</S.Separator> */}
+                            {/* <SelectCalendar name='endDate' value={endDate} setValue={setEndDate}/> */}
+                            {/* <S.AddTime>Adicionar horário</S.AddTime> */}
                         </S.Date>
                     </S.DateContainer>
                     <S.AllDayLong>
@@ -105,7 +120,7 @@ export function CreateEventModal() {
                         </S.AddGuest>
                     </S.AddLocalContainer>
                     <S.SaveNewScheduleContainer>
-                        <button onClick={handleNewEventDay}>Salvar</button>
+                        <button onClick={handleSaveEvent}>Salvar</button>
                     </S.SaveNewScheduleContainer>
                 </S.ContentModal>
             </S.ScreenModal>
