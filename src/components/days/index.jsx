@@ -13,7 +13,7 @@ export function Day({ day, rowIdx }) {
     setEventDay(event)
     // setEventDay(event)
   },[])
-
+  console.log(eventDay)
   return (
     <S.ContainerDay onClick={() => {
       setModalEventDay(`${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}`)
@@ -29,7 +29,7 @@ export function Day({ day, rowIdx }) {
           {day.format('D')}
         </S.Day>
       </S.DayHeader>
-      {eventDay.length ? (
+      {eventDay ? (
         eventDay.map((event, i) => (
           <Fragment key={i}>
             {event.startDate === `${day.format('dddd')}, ${day.format('D')} de ${day.format('MMMM')}` && (
